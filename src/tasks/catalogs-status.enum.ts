@@ -1,0 +1,8 @@
+export enum ConnectionType {
+  CONNECTION_DIRECTLY = 'CONNECTION_DIRECTLY',
+  CONNECTION_VIA_SSH_TUNNEL = 'CONNECTION_VIA_SSH_TUNNEL'
+    // OPEN = 'OPEN',
+    // IN_PROGRESS = 'IN_PROGRESS',
+    // DONE = 'DONE',
+  }
+  
