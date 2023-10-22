@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { ConnectionType } from './catalogs-status.enum';
+import { ConnectionType } from './catalogs-connectionType.enum';
 
 @Entity()
 export class Task {

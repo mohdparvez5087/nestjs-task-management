@@ -2,7 +2,7 @@ import { DataSource, Repository } from 'typeorm';
 import { Task } from './catalogs.entity';
 import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-catalogs.dto';
-import { ConnectionType } from './catalogs-status.enum';
+import { ConnectionType } from './catalogs-connectionType.enum';
 import { GetTasksFilterDto } from './dto/get-catalogs-filter.dto';
 
 @Injectable()
