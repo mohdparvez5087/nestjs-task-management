@@ -2,9 +2,8 @@ import { DataSource, Repository } from 'typeorm';
 import { Task } from './catalogs.entity';
 import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-catalogs.dto';
-import { ConnectionType } from './catalogs-connectionType.enum';
 import { GetTasksFilterDto } from './dto/get-catalogs-filter.dto';
-import { SelectDataSource } from './catalogs-dataSource.enum';
+
 
 @Injectable()
 export class TasksRepository extends Repository<Task> {
@@ -77,5 +76,5 @@ export class TasksRepository extends Repository<Task> {
   //   await this.save(task);
   //   return task;
   // }
-  
+
 }
