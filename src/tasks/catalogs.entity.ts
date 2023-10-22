@@ -1,10 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { ConnectionType } from './catalogs-connectionType.enum';
+import { SelectDataSource } from './catalogs-dataSource.enum';
 
 @Entity()
 export class Task {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  dataSource: SelectDataSource;
 
   @Column()
   catalogName: string;
@@ -13,7 +17,7 @@ export class Task {
   description: string;
 
   @Column()
-  ConnectionType: ConnectionType;
+  connectionType: ConnectionType;
 
   @Column()
   rdsDatabaseHost: string;
@@ -33,5 +37,9 @@ export class Task {
   @Column()
   useTls: boolean;
 
+  // @Column()
+  // fieldName: string;
 
+  // @Column()
+  // fieldType: string;
 }

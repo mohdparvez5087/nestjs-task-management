@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@
 import { TasksService } from "./catalogs.service";
 import { Task } from "./catalogs.entity";
 import { CreateTaskDto } from './dto/create-catalogs.dto';
-import { UpdateTaskStatusDto } from "./dto/update-catalogs-status.dto";
 import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
 
  

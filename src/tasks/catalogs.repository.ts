@@ -4,6 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-catalogs.dto';
 import { ConnectionType } from './catalogs-connectionType.enum';
 import { GetTasksFilterDto } from './dto/get-catalogs-filter.dto';
+import { SelectDataSource } from './catalogs-dataSource.enum';
 
 @Injectable()
 export class TasksRepository extends Repository<Task> {
@@ -22,7 +23,7 @@ export class TasksRepository extends Repository<Task> {
 
     if (search) {
       query.andWhere(
-        'LOWER(task.catalogName) LIKE LOWER(:search) OR LOWER(task.dataBaseName) LIKE LOWER(:search)',
+        'LOWER(task.catalogName) LIKE LOWER(:search) OR LOWER(task.databaseName) LIKE LOWER(:search)',
         { search: `%${search}%` },
       );
     }
@@ -33,8 +34,10 @@ export class TasksRepository extends Repository<Task> {
 
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
     const {
+      dataSource,
       catalogName,
       description,
+      connectionType,
       rdsDatabaseHost,
       port,
       databaseName,
@@ -45,9 +48,10 @@ export class TasksRepository extends Repository<Task> {
     } = createTaskDto;
 
     const task = this.create({
+      dataSource,
       catalogName,
       description,
-      ConnectionType: ConnectionType.CONNECTION_DIRECTLY,
+      connectionType,
       rdsDatabaseHost,
       port,
       databaseName,
@@ -58,4 +62,19 @@ export class TasksRepository extends Repository<Task> {
     await this.save(task);
     return task;
   }
+
+
+  // async addField(createTaskDto: CreateTaskDto): Promise<Task> {
+  //   const {
+  //     fieldName,
+  //     fieldType
+  //   } = createTaskDto;
+
+  //   const task = this.create({
+  //     fieldName,
+  //     fieldType
+  //   });
+  //   await this.save(task);
+  //   return task;
+  // }
 }
