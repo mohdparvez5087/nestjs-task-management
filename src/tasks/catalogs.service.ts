@@ -32,12 +32,19 @@ export class TasksService {
     }
   }
 
-  async updateTaskStatus(id: string, connectionType: ConnectionType): Promise<Task> {
+  // async updateTaskStatus(id: string, connectionType: ConnectionType): Promise<Task> {
+  //   const task = await this.getTaskById(id);
+
+  //   task.ConnectionType = connectionType;
+  //   await this.tasksRepository.save(task);
+
+  //   return task;
+  // }
+
+  async updateTask(id: string, updateFields: Partial<Task>): Promise<Task> {
     const task = await this.getTaskById(id);
-
-    task.ConnectionType = connectionType;
+    Object.assign(task, updateFields);
     await this.tasksRepository.save(task);
-
     return task;
   }
 }

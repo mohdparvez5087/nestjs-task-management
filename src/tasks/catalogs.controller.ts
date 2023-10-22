@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
 import { TasksService } from "./catalogs.service";
 import { Task } from "./catalogs.entity";
 import { CreateTaskDto } from './dto/create-catalogs.dto';
@@ -30,12 +30,17 @@ export class TasksController {
     return this.taskService.deleteTask(id);
   }
 
-  @Patch('/:id/connectiontype')
-  updateTaskStatus(
-    @Param('id') id: string,
-    @Body() updateTaskStatusDto: UpdateTaskStatusDto,
-  ): Promise<Task> {
-    const { connectionType } = updateTaskStatusDto;
-    return this.taskService.updateTaskStatus(id, connectionType);
+  // @Patch('/:id/connectiontype')
+  // updateTaskStatus(
+  //   @Param('id') id: string,
+  //   @Body() updateTaskStatusDto: UpdateTaskStatusDto,
+  // ): Promise<Task> {
+  //   const { connectionType } = updateTaskStatusDto;
+  //   return this.taskService.updateTaskStatus(id, connectionType);
+  // }
+
+  @Put(':id')
+  async updateTask(@Param('id') id: string, @Body() updateFields: Partial<Task>): Promise<Task> {
+    return this.taskService.updateTask(id, updateFields);
   }
 }
