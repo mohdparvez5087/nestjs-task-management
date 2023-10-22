@@ -6,7 +6,7 @@ run this command in windows terminal as global when you are working on nestjs pr
 run this command in windows terminal To run PostgreSQL on Docker
 -docker run --name postgres-nest -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
 
-run this command in windows terminal when ever you restart the pc to start the postgeSql server or just click o play button in docker app
+run this command in windows terminal when ever you restart the pc to start the postgeSql server or just click on play button in docker app
 -docker container start postgres-nest
 
 to use dependencies
@@ -16,11 +16,11 @@ run this command to connect the project to database
 -npm install typeorm @nestjs/typeorm pg
 
 
-how to setup pgAdmin
+how to setup pgAdmin and creating database using pgAdmin
 https://www.udemy.com/course/nestjs-zero-to-hero/learn/lecture/26681858#questions/17894298
 videos 40 and 41
 
-creating database using pgAdmin
+
 
 
 
