@@ -23,7 +23,7 @@ export class Task {
   rdsDatabaseHost: string;
 
   @Column()
-  port: string;
+  port: Number;
 
   @Column()
   databaseName: string;

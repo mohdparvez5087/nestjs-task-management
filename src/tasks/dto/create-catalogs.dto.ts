@@ -20,7 +20,7 @@ export class CreateTaskDto {
   rdsDatabaseHost: string;
   
   @IsOptional()
-  port: string;
+  port: Number;
 
   @IsNotEmpty()
   databaseName: string;
