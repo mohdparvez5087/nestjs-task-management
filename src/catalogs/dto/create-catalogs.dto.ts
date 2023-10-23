@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsOptional } from 'class-validator';
-import { SelectDataSource } from '../catalogs-dataSource.enum';
-import { ConnectionType } from '../catalogs-connectionType.enum';
+import { SelectDataSource } from '../Enums/catalogs-dataSource.enum';
+import { ConnectionType } from '../Enums/catalogs-connectionType.enum';
 
 export class CreateCatalogDto {
 

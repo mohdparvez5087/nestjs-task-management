@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { CatalogsRepository } from "./catalogs.repository";
-import { Catalog } from "./catalogs.entity";
-import { CreateCatalogDto } from './dto/create-catalogs.dto';
-import { GetCatalogsFilterDto } from "./dto/get-catalogs-filter.dto";
+import { CatalogsRepository } from "../Repository/catalogs.repository";
+import { Catalog } from "../catalogs.entity";
+import { CreateCatalogDto } from '../dto/create-catalogs.dto';
+import { GetCatalogsFilterDto } from "../dto/get-catalogs-filter.dto";
  
  
 @Injectable()

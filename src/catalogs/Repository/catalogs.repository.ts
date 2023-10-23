@@ -1,10 +1,10 @@
 import { DataSource, Repository } from 'typeorm';
-import { Catalog } from './catalogs.entity';
+import { Catalog } from '../catalogs.entity';
 import { Injectable } from '@nestjs/common';
-import { CreateCatalogDto } from './dto/create-catalogs.dto';
-import { GetCatalogsFilterDto } from './dto/get-catalogs-filter.dto';
-import { SelectDataSource } from './catalogs-dataSource.enum';
-import { ConnectionType } from './catalogs-connectionType.enum';
+import { CreateCatalogDto } from '../dto/create-catalogs.dto';
+import { GetCatalogsFilterDto } from '../dto/get-catalogs-filter.dto';
+import { SelectDataSource } from '../Enums/catalogs-dataSource.enum';
+import { ConnectionType } from '../Enums/catalogs-connectionType.enum';
 
 
 @Injectable()

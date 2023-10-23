@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { ConnectionType } from './catalogs-connectionType.enum';
-import { SelectDataSource } from './catalogs-dataSource.enum';
+import { ConnectionType } from './Enums/catalogs-connectionType.enum';
+import { SelectDataSource } from './Enums/catalogs-dataSource.enum';
 
 @Entity()
 export class Catalog {

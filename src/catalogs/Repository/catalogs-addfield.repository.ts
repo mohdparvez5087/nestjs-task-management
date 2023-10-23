@@ -1,5 +1,5 @@
 import { DataSource, Repository } from 'typeorm';
-import { Catalog } from './catalogs.entity';
+import { Catalog } from '../catalogs.entity';
 import { Injectable } from '@nestjs/common';
 
 
