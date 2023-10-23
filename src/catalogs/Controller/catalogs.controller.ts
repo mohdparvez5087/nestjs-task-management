@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
-import { CatalogsService } from "../Services/catalogs.service";
+import { CatalogsService } from "../services/catalogs.service";
 import { Catalog } from "../catalogs.entity";
 import { CreateCatalogDto } from '../dto/create-catalogs.dto';
 import { GetCatalogsFilterDto } from "../dto/get-catalogs-filter.dto";

@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { CatalogsRepository } from "../Repository/catalogs.repository";
+import { CatalogsRepository } from "../repository/catalogs.repository";
 import { Catalog } from "../catalogs.entity";
 import { CreateCatalogDto } from '../dto/create-catalogs.dto';
 import { ConnectionType } from "../Enums/catalogs-connectionType.enum";

@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { CatalogsController } from "./Controller/catalogs.controller";
-import { CatalogsRepository } from "./Repository/catalogs.repository";
-import { CatalogsService } from "./Services/catalogs.service";
+import { CatalogsController } from "./controller/catalogs.controller";
+import { CatalogsRepository } from "./repository/catalogs.repository";
+import { CatalogsService } from "./services/catalogs.service";
 import { Catalog } from "./catalogs.entity";
  
 @Module({
