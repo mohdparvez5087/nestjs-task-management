@@ -2,7 +2,7 @@ import { IsNotEmpty, IsOptional } from 'class-validator';
 import { SelectDataSource } from '../catalogs-dataSource.enum';
 import { ConnectionType } from '../catalogs-connectionType.enum';
 
-export class CreateTaskDto {
+export class CreateCatalogDto {
 
   @IsNotEmpty()
   dataSource: SelectDataSource;

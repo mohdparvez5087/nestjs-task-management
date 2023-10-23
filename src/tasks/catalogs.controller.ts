@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
 import { CatalogsService } from "./catalogs.service";
 import { Catalog } from "./catalogs.entity";
-import { CreateTaskDto } from './dto/create-catalogs.dto';
+import { CreateCatalogDto } from './dto/create-catalogs.dto';
 import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
 
  
@@ -20,7 +20,7 @@ export class CatalogsController {
   }
 
   @Post()
-  createTask(@Body() createTaskDto: CreateTaskDto): Promise<Catalog> {
+  createTask(@Body() createTaskDto: CreateCatalogDto): Promise<Catalog> {
     return this.taskService.createTask(createTaskDto);
   }
 

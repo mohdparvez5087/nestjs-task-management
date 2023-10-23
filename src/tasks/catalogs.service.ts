@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { CatalogsRepository } from "./catalogs.repository";
 import { Catalog } from "./catalogs.entity";
-import { CreateTaskDto } from './dto/create-catalogs.dto';
+import { CreateCatalogDto } from './dto/create-catalogs.dto';
 import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
  
  
@@ -19,7 +19,7 @@ export class CatalogsService {
     return found;
   }
 
-  createTask(createTaskDto: CreateTaskDto): Promise<Catalog> {
+  createTask(createTaskDto: CreateCatalogDto): Promise<Catalog> {
     return this.tasksRepository.createTask(createTaskDto);
   }
 

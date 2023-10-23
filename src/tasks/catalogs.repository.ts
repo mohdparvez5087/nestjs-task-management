@@ -1,7 +1,7 @@
 import { DataSource, Repository } from 'typeorm';
 import { Catalog } from './catalogs.entity';
 import { Injectable } from '@nestjs/common';
-import { CreateTaskDto } from './dto/create-catalogs.dto';
+import { CreateCatalogDto } from './dto/create-catalogs.dto';
 import { GetTasksFilterDto } from './dto/get-catalogs-filter.dto';
 import { SelectDataSource } from './catalogs-dataSource.enum';
 import { ConnectionType } from './catalogs-connectionType.enum';
@@ -33,7 +33,7 @@ export class CatalogsRepository extends Repository<Catalog> {
     return tasks;
   }
 
-  async createTask(createTaskDto: CreateTaskDto): Promise<Catalog> {
+  async createTask(createTaskDto: CreateCatalogDto): Promise<Catalog> {
     const {
       dataSource,
       catalogName,
