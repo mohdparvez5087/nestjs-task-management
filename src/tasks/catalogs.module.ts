@@ -11,4 +11,4 @@ import { Catalog } from "./catalogs.entity";
   controllers: [CatalogsController],
   providers: [CatalogsService, CatalogsRepository],
 })
-export class TasksModule {}
+export class CatalogsModule {}

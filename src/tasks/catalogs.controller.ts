@@ -7,26 +7,26 @@ import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
  
 @Controller("tasks")
 export class CatalogsController {
-  constructor(private taskService: CatalogsService) {}
+  constructor(private catalogService: CatalogsService) {}
  
   @Get()
   getTasks(@Query() filterDto: GetTasksFilterDto): Promise<Catalog[]> {
-    return this.taskService.getTasks(filterDto);
+    return this.catalogService.getTasks(filterDto);
   }
 
   @Get("/:id")
   getTaskById(@Param("id") id: string): Promise<Catalog> {
-    return this.taskService.getTaskById(id);
+    return this.catalogService.getTaskById(id);
   }
 
   @Post()
   createTask(@Body() createTaskDto: CreateCatalogDto): Promise<Catalog> {
-    return this.taskService.createTask(createTaskDto);
+    return this.catalogService.createTask(createTaskDto);
   }
 
   @Delete('/:id')
   deleteTask(@Param('id') id: string): Promise<void> {
-    return this.taskService.deleteTask(id);
+    return this.catalogService.deleteTask(id);
   }
 
   // @Patch('/:id/connectiontype')
@@ -40,6 +40,6 @@ export class CatalogsController {
 
   @Put(':id')
   async updateTask(@Param('id') id: string, @Body() updateFields: Partial<Catalog>): Promise<Catalog> {
-    return this.taskService.updateTask(id, updateFields);
+    return this.catalogService.updateTask(id, updateFields);
   }
 }
