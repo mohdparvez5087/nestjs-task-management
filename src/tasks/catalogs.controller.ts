@@ -6,7 +6,7 @@ import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
 
  
 @Controller("tasks")
-export class TasksController {
+export class CatalogsController {
   constructor(private taskService: TasksService) {}
  
   @Get()
