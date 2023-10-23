@@ -2,7 +2,7 @@ import { DataSource, Repository } from 'typeorm';
 import { Catalog } from './catalogs.entity';
 import { Injectable } from '@nestjs/common';
 import { CreateCatalogDto } from './dto/create-catalogs.dto';
-import { GetTasksFilterDto } from './dto/get-catalogs-filter.dto';
+import { GetCatalogsFilterDto } from './dto/get-catalogs-filter.dto';
 import { SelectDataSource } from './catalogs-dataSource.enum';
 import { ConnectionType } from './catalogs-connectionType.enum';
 
@@ -13,7 +13,7 @@ export class CatalogsRepository extends Repository<Catalog> {
     super(Catalog, dataSource.createEntityManager());
   }
 
-  async getTasks(filterDto: GetTasksFilterDto): Promise<Catalog[]> {
+  async getCatalogs(filterDto: GetCatalogsFilterDto): Promise<Catalog[]> {
     const { connectionType, search } = filterDto;
 
     const query = this.createQueryBuilder('task');
@@ -33,7 +33,7 @@ export class CatalogsRepository extends Repository<Catalog> {
     return tasks;
   }
 
-  async createTask(createTaskDto: CreateCatalogDto): Promise<Catalog> {
+  async createcatalog(createCatalogDto: CreateCatalogDto): Promise<Catalog> {
     const {
       dataSource,
       catalogName,
@@ -46,7 +46,7 @@ export class CatalogsRepository extends Repository<Catalog> {
       rdsMasterDatabasePassword,
       useTls,
 
-    } = createTaskDto;
+    } = createCatalogDto;
 
   let enumDataSource;
   let enumConnectionType;
@@ -71,7 +71,7 @@ export class CatalogsRepository extends Repository<Catalog> {
     enumConnectionType = ConnectionType.CONNECTION_DIRECTLY;
   }
 
-    const task = this.create({
+    const catalog = this.create({
       dataSource: enumDataSource,
       catalogName,
       description,
@@ -83,8 +83,8 @@ export class CatalogsRepository extends Repository<Catalog> {
       rdsMasterDatabasePassword,
       useTls
     });
-    await this.save(task);
-    return task;
+    await this.save(catalog);
+    return catalog;
   }
 
 
