@@ -6,7 +6,7 @@ import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
  
  
 @Injectable()
-export class TasksService {
+export class CatalogsService {
   constructor(private readonly tasksRepository: TasksRepository) {}
 
   getTasks(filterDto: GetTasksFilterDto): Promise<Catalog[]> {

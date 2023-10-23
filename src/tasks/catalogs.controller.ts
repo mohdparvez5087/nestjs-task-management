@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
-import { TasksService } from "./catalogs.service";
+import { CatalogsService } from "./catalogs.service";
 import { Catalog } from "./catalogs.entity";
 import { CreateTaskDto } from './dto/create-catalogs.dto';
 import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
@@ -7,7 +7,7 @@ import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
  
 @Controller("tasks")
 export class CatalogsController {
-  constructor(private taskService: TasksService) {}
+  constructor(private taskService: CatalogsService) {}
  
   @Get()
   getTasks(@Query() filterDto: GetTasksFilterDto): Promise<Catalog[]> {
