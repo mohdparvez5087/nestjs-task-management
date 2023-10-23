@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { TasksRepository } from "./catalogs.repository";
-import { Task } from "./catalogs.entity";
+import { Catalog } from "./catalogs.entity";
 import { CreateTaskDto } from './dto/create-catalogs.dto';
 import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
  
@@ -9,17 +9,17 @@ import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
 export class TasksService {
   constructor(private readonly tasksRepository: TasksRepository) {}
 
-  getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
+  getTasks(filterDto: GetTasksFilterDto): Promise<Catalog[]> {
     return this.tasksRepository.getTasks(filterDto);
   }
 
-  async getTaskById(id: string): Promise<Task> {
+  async getTaskById(id: string): Promise<Catalog> {
     const found = await this.tasksRepository.findOne({ where: { id } });
-    if (!found) throw new NotFoundException(`Task with ID "${id}" not found!`);
+    if (!found) throw new NotFoundException(`Catalog with ID "${id}" not found!`);
     return found;
   }
 
-  createTask(createTaskDto: CreateTaskDto): Promise<Task> {
+  createTask(createTaskDto: CreateTaskDto): Promise<Catalog> {
     return this.tasksRepository.createTask(createTaskDto);
   }
 
@@ -27,11 +27,11 @@ export class TasksService {
     const result = await this.tasksRepository.delete(id);
 
     if (result.affected === 0) {
-      throw new NotFoundException(`Task with ID "${id}" not found`);
+      throw new NotFoundException(`Catalog with ID "${id}" not found`);
     }
   }
 
-  // async updateTaskStatus(id: string, connectionType: ConnectionType): Promise<Task> {
+  // async updateTaskStatus(id: string, connectionType: ConnectionType): Promise<Catalog> {
   //   const task = await this.getTaskById(id);
 
   //   task.ConnectionType = connectionType;
@@ -40,7 +40,7 @@ export class TasksService {
   //   return task;
   // }
 
-  async updateTask(id: string, updateFields: Partial<Task>): Promise<Task> {
+  async updateTask(id: string, updateFields: Partial<Catalog>): Promise<Catalog> {
     const task = await this.getTaskById(id);
     Object.assign(task, updateFields);
     await this.tasksRepository.save(task);

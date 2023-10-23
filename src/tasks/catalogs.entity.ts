@@ -3,7 +3,7 @@ import { ConnectionType } from './catalogs-connectionType.enum';
 import { SelectDataSource } from './catalogs-dataSource.enum';
 
 @Entity()
-export class Task {
+export class Catalog {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

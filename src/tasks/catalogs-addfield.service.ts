@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { TasksRepository } from "./catalogs.repository";
-import { Task } from "./catalogs.entity";
+import { Catalog } from "./catalogs.entity";
 import { CreateTaskDto } from './dto/create-catalogs.dto';
 import { ConnectionType } from "./catalogs-connectionType.enum";
 import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
@@ -10,7 +10,7 @@ import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
 export class TasksService {
   constructor(private readonly tasksRepository: TasksRepository) {}
 
-//   addField(createTaskDto: CreateTaskDto): Promise<Task> {
+//   addField(createTaskDto: CreateTaskDto): Promise<Catalog> {
 //     return this.tasksRepository.addField(createTaskDto);
 //   }
 }

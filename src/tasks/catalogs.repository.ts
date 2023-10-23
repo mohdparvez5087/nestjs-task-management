@@ -1,5 +1,5 @@
 import { DataSource, Repository } from 'typeorm';
-import { Task } from './catalogs.entity';
+import { Catalog } from './catalogs.entity';
 import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-catalogs.dto';
 import { GetTasksFilterDto } from './dto/get-catalogs-filter.dto';
@@ -8,12 +8,12 @@ import { ConnectionType } from './catalogs-connectionType.enum';
 
 
 @Injectable()
-export class TasksRepository extends Repository<Task> {
+export class TasksRepository extends Repository<Catalog> {
   constructor(private dataSource: DataSource) {
-    super(Task, dataSource.createEntityManager());
+    super(Catalog, dataSource.createEntityManager());
   }
 
-  async getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
+  async getTasks(filterDto: GetTasksFilterDto): Promise<Catalog[]> {
     const { connectionType, search } = filterDto;
 
     const query = this.createQueryBuilder('task');
@@ -33,7 +33,7 @@ export class TasksRepository extends Repository<Task> {
     return tasks;
   }
 
-  async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
+  async createTask(createTaskDto: CreateTaskDto): Promise<Catalog> {
     const {
       dataSource,
       catalogName,
@@ -88,18 +88,6 @@ export class TasksRepository extends Repository<Task> {
   }
 
 
-  // async addField(createTaskDto: CreateTaskDto): Promise<Task> {
-  //   const {
-  //     fieldName,
-  //     fieldType
-  //   } = createTaskDto;
-
-  //   const task = this.create({
-  //     fieldName,
-  //     fieldType
-  //   });
-  //   await this.save(task);
-  //   return task;
-  // }
+  
 
 }
