@@ -8,7 +8,7 @@ import { ConnectionType } from './catalogs-connectionType.enum';
 
 
 @Injectable()
-export class TasksRepository extends Repository<Catalog> {
+export class CatalogsRepository extends Repository<Catalog> {
   constructor(private dataSource: DataSource) {
     super(Catalog, dataSource.createEntityManager());
   }

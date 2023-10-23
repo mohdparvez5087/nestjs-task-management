@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { CatalogsController } from "./catalogs.controller";
-import { TasksRepository } from "./catalogs.repository";
+import { CatalogsRepository } from "./catalogs.repository";
 import { CatalogsService } from "./catalogs.service";
 import { Catalog } from "./catalogs.entity";
  
@@ -9,6 +9,6 @@ import { Catalog } from "./catalogs.entity";
   imports: [TypeOrmModule.forFeature([Catalog])],
   exports: [CatalogsService],
   controllers: [CatalogsController],
-  providers: [CatalogsService, TasksRepository],
+  providers: [CatalogsService, CatalogsRepository],
 })
 export class TasksModule {}

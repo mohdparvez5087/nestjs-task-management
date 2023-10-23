@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { TasksRepository } from "./catalogs.repository";
+import { CatalogsRepository } from "./catalogs.repository";
 import { Catalog } from "./catalogs.entity";
 import { CreateTaskDto } from './dto/create-catalogs.dto';
 import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
@@ -7,7 +7,7 @@ import { GetTasksFilterDto } from "./dto/get-catalogs-filter.dto";
  
 @Injectable()
 export class CatalogsService {
-  constructor(private readonly tasksRepository: TasksRepository) {}
+  constructor(private readonly tasksRepository: CatalogsRepository) {}
 
   getTasks(filterDto: GetTasksFilterDto): Promise<Catalog[]> {
     return this.tasksRepository.getTasks(filterDto);
